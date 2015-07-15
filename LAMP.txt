@@ -1,0 +1,56 @@
+Checked for updates => sudo apt-get update
+Installed tasksel => sudo apt-get install tasksel
+Started tasksel to install LAMP server => sudo tasksel
+Installed LAMP server 
+Enabled rewrite mode for Apache2 => sudo a2enmod rewrite
+Changed 'html' folder ownership to user 'ubuntu' recursively => sudo chown-R ubuntu /var/www
+Created 'webroot' link to web file locations => sudo ln -s /var/www/html /home/ubuntu/webroot
+Created 'phpinfo.php'in '/var/www/html' file with content to display php configuration => printf "<?php phpinfo();?>" > ~/webroot/phpinfo.php
+Restarted apaceh service => sudo service apache2 restart
+
+Enabled hypertext access directory '/var/www/'=> navigate to /etc/apache2/  used pico to modify file 'apache2.conf'
+					      => Changed the directory access 'AllowOverride None' to 'AllowOverride All' for '<Directory /var/www/>'entry 
+					      => Saved the file 'apache2.conf' on exit
+
+Created the '.htaccess' file under '/var/www/html' and set the location of the '.htpasswd' file => 'AuthUserFile /var/www/html/.htpasswd'
+Created the '.htpasswd' file => used a webservice to create the file with the desired username/password and saved it in the directory '/var/www/html/'
+	Reference========Link to '.htaccess' file creator ============> http://www.htaccesstools.com/htpasswd-generator/
+
+	Note: .htaccess directory Username: ricardo Password:panizo
+
+Installed GIT => sudo apt-get install gitcore
+Created the git repository in '/var/www/html' => cd ~/webroot
+					      => git init
+
+Created the 'connect.php' script  
+
+Created 'db.php' for use with connect.php file 
+Created '.gitignore' file
+Removed 'db.php' file from GIT vdersion control =>cd ~/webroot
+						=>echo 'db.php' > .gitignore
+
+Added file to GIT repository list => git add connect.php
+Commented/commited the GIT entry => git commit -m "added test connection connect.php"
+Created 'readme.md' file => cd ~/webroot
+			 => touch readme.md
+Added file to GIT repository list => git add readme.md
+Commented/commited the GIT entry => git commit -m 'first commit'
+Pushed git repository => git push -u origin master
+	
+	Note: GitHub User:s3387808 Password: P@ssw0rd15
+
+Checked PDO installeed  =>  http://52.64.92.90/phpinfo.php 
+	-PDO version installed => 5.5.43
+
+Installed memcached => sudo apt-get install memcached
+
+Added file to GIT repository list => git add search.php
+				  => git add answer.php
+				  => git add results.php
+				  => git add AWS.txt
+				  => git add LAMP.txt
+				  => git add MySQL.txt
+				  => git add DESIGN.txt
+
+
+

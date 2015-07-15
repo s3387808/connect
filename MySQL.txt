@@ -1,0 +1,6 @@
+Chage password 'root'@'localhost' from 'password' to 'Th30r@cle' - NOTE: It is the number (cero) after the '3'.
+Created user 'root'@'mysrverhostname' with password = 'Th30r@cle' - NOTE: It is the number (cero) after the '3'.
+Created user 'a1'@'localhost' with password = 'password'
+Created the winestore database
+Loaded the winestore data
+Granted "All privileges to  user 'a1'@localhost' to 'winestore' database

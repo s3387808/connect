@@ -1,0 +1,25 @@
+Security Files
+---------------
+
+/var/www/html/
+		.htaccess
+		.htpasswd
+		db_pdo.php
+
+PHP assignment 1
+----------------
+
+/var/www/html/
+		search.php
+		answer.php
+		results.php
+
+Assignment 1 configuration logs
+-------------------------------
+
+/var/www/html/
+		AWS.txt
+		LAMP.txt
+		MySQL.txt
+		DESIGN.txt
+
