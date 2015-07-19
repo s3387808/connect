@@ -1,40 +1,51 @@
+<?php session_start();
+$error='';
+
+$winename = $_SESSION['winename'];
+$_SESSION['winename'] = $_GET['winename'];
+
+$winery = $_SESSION['winery'];
+$_SESSION['winery'] = $_GET['winery'];
+
+$region = $_SESSION['region'];
+$_SESSION['region'] = $_GET['region'];
+
+$variety = $_SESSION['variety'];
+$_SESSION['variety'] = $_GET['variety'];
+
+echo ("Wine search entered = $winename<br>");
+echo ("Winery search entered = $winery<br>");
+echo ("Region selected = $region<br>");
+echo ("Grape variety selected = $variety<br>");
+
+$result = $_SESSION['result'];
+?>
+
 <html>
 <head>
+<style>
+table, th, td {
+     border: 1px solid black;
+}
+</style>
 <title> Sample Page </title>
 </head>
 <body>
 
-<p>Your Winename: <?=$_GET['winename']?></p>
+<?php
+ $length = count ($result);
+ echo ("Found $length match/es <br><br><br>");
 
-	<?php
-	require_once('db_pdo.php');
+			 echo "<table><tr><th>Wine_Name</th><th>Grape_Variety</th><th>Year</th><th>Winery_Name</th><th>Region_Name</th><th>Cost_Price</th><th>Bottles in stock</th><th>Bottles_Sold</th><th>Sales_Revenue</th></tr>";
 
-	try {
-			$dsn = 'mysql:host=localhost;dbname=winestore';
-  			$pdo = new PDO($dsn, $_GET['name'], DB_PW);
-  
-  			// all errors will throw exceptions
- 			 $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+		foreach ($result as $row)
+		{
+        echo "<tr><td>" . $row["wine_name"]. "</td><td>" . $row["variety"]. "</td><td>" . $row["year"]. "</td><td>" . $row["winery_name"]. "</td><td>" . $row["region_name"]. "</td><td>" . "$".$row["cost"]. "</td><td>" . $row["on_hand"]. "</td><td>" . $row["qty"]. "</td><td>" . $row["price"]. "</td></tr>";
+     	}
+    
+		 echo "</table>";
 
-  			$query = 'SELECT * FROM wine WHERE wine_id > ?';
-  			$statement = $pdo->prepare($query);
-  			$values = array('1000');
-  			$statement->execute($values);
-  			$result = $statement->fetchAll(PDO::FETCH_ASSOC);
-
-  			echo '<pre>';
-  			print_r($result);
- 	 		echo '</pre>';
-
-  			// close the connection by destroying the object
- 		 	$pdo = null;
-		} catch (PDOException $e)
-		 {
- 	 		echo $e->getMessage();
-  			exit;
-		}
 		?>
-
-
 </body>
+
 </html>

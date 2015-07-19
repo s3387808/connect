@@ -1,0 +1,7 @@
+Creaed an account with AWS
+Generated aKey pair using ssh-keygen
+Created and ECS instance with Ubuntu 14.04 LTSversion
+Updated the new instance => sudo apt-get update
+Setup/created the phpinfo.php page for configuration information
+Signed up for a Git repository
+Tested Git repository
